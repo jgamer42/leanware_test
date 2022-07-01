@@ -21,7 +21,7 @@ class Traders(object):
     def update_user_investments(self, new_investments, product_to_update, trader_name):
         user_to_update = self.get_user_information(trader_name)
         if "message" in user_to_update.keys():
-            return {}
+            return {"message": "Usser Doesn't exist"}
         data_updated = self.traders.update_item(
             Key={"Id": user_to_update.get("Id")},
             UpdateExpression=f"SET {product_to_update}= :new_data",
