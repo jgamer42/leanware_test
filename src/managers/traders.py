@@ -3,8 +3,6 @@ from boto3.dynamodb.conditions import Attr
 
 
 class Traders(object):
-    """"""
-
     def __init__(self):
         self.database_region = "us-east-1"
         self.client = boto3.client("dynamodb", region_name=self.database_region)
