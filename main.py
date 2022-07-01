@@ -6,6 +6,12 @@ app = Flask(__name__)
 app.register_blueprint(traders)
 app.register_blueprint(investments)
 app.register_blueprint(general)
+app.secret_key = "hola"
+
+
+@app.errorhandler(404)
+def method_not_allowed(a):
+    return "not found pls ask for help"
 
 
 @app.errorhandler(404)
@@ -15,7 +21,7 @@ def not_found(a):
 
 @app.errorhandler(401)
 def forbiden(a):
-    return "not found pls ask for help"
+    return "forbiden"
 
 
 @app.errorhandler(400)
@@ -25,4 +31,4 @@ def bad_request(a):
 
 @app.errorhandler(500)
 def server_error(a):
-    return "not found pls ask for help"
+    return "woops something wrong"

@@ -1,10 +1,7 @@
 from flask import Blueprint
-
-
-def user():
-    return "here"
+from src.views import general as view
 
 
 general = Blueprint("general", __name__)
-general.add_url_rule("/login", "test", user)
-general.add_url_rule("/logout", "test", user)
+general.add_url_rule("/login", "login", view.login, methods=["POST"])
+general.add_url_rule("/logout", "logout", view.logout, methods=["POST", "GET"])
