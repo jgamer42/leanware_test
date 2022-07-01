@@ -1,12 +1,11 @@
 import hashlib
-from src.managers import Traders, Investment
+from src.managers import Traders
 
 
 class Trader(object):
     def __init__(self, username):
         self.username = username
         self.traders_manager = Traders()
-        self.investment_manager = Investment()
         self.user_information = self.get_user_info()
 
     def login(self, password):

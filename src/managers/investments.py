@@ -20,10 +20,14 @@ class Investment(object):
         return set([d.get("Name", "") for d in data.get("Items", [])])
 
     def get_price_for_investment(
-        self, investment, start_date, type="Stock", end_date=None
+        self,
+        investment,
+        start_date,
+        end_date=None,
+        type="Stock",
     ):
         if end_date == None:
-            end_date = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            end_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         data = self.investments.scan(
             FilterExpression=Attr("TimeStamp").between(start_date, end_date)
             & Attr("Name").eq(investment)

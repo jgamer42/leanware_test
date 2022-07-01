@@ -12,7 +12,6 @@ def generate_token(username):
 
 def verify_token(token):
     decript = jwt.decode(token, "secretKey", algorithms=["HS256"])
-    print(decript.get("expires") >= time.time())
     return (
         "user" in decript.keys()
         and "expires" in decript.keys()
