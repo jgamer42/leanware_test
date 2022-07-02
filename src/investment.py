@@ -3,6 +3,7 @@ import pandas as pd
 from src.managers import Investment as InvestmentManager
 from src.helpers import date as dateHelper
 import uuid
+from operator import itemgetter
 
 
 class Investment(object):
@@ -36,3 +37,20 @@ class Investment(object):
             f"/home/user/Escritorio/leanware_test/reports/{output_file}.csv"
         )
         return f"/home/user/Escritorio/leanware_test/reports/{output_file}.csv"
+
+    def get_last_price_investment(self, investment_name):
+        prices = self.manager.get_invesment_by_name(investment_name, self.type)
+        if prices != []:
+            for price in prices:
+                price["TimeStamp"] = dateHelper.get_timpestamp_object(
+                    price.get("TimeStamp")
+                )
+            prices.sort(key=itemgetter("TimeStamp"))
+            output = prices[-1]
+            return {
+                "message": "last price registred",
+                "timeStamp": output.get("TimeStamp"),
+                "prices": output.get("Price"),
+            }
+        else:
+            return {"message": "not prices registred"}

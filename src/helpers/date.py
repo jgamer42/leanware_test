@@ -12,3 +12,8 @@ def validate_date_format(date):
 def get_valid_date_format(date):
     date_object = datetime.datetime.strptime(date, "%d-%m-%Y")
     return date_object.strftime("%Y-%m-%d %H:%M:%S")
+
+
+def get_timpestamp_object(timestamp):
+    timestamp_object = datetime.datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")
+    return timestamp_object

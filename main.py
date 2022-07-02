@@ -32,3 +32,7 @@ def bad_request(a):
 @app.errorhandler(500)
 def server_error(a):
     return "woops something wrong"
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

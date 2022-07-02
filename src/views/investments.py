@@ -6,7 +6,7 @@ from flask import send_file
 
 
 @auth.login_required
-def available_symbols():
+def available_investments():
     investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
     investment_type = investment_type.capitalize()
     controller = Investment(investment_type)
@@ -15,7 +15,7 @@ def available_symbols():
 
 
 @auth.login_required
-def price_symbols(investment_name, start_date, end_date):
+def price_investments(investment_name, start_date, end_date):
     try:
         investment_type = request.environ.get("REQUEST_URI").split("/")[2]
         investment_type = investment_type.capitalize()

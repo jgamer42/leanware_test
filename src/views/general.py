@@ -1,4 +1,3 @@
-import re
 from cerberus import Validator
 from flask import request, jsonify, session
 from src.trader import Trader
@@ -6,13 +5,13 @@ from src.helpers import auth
 
 
 def login():
-    expected_request_model = {
+    expected_request = {
         "username": {"type": "string"},
         "password": {"type": "string"},
     }
     user_name = request.json.get("username")
     validator = Validator()
-    validator.schema = expected_request_model
+    validator.schema = expected_request
     if not validator.validate(request.json):
         return jsonify({"message": "Bad request"}), 404
     user = Trader(user_name)

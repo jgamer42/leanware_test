@@ -4,8 +4,6 @@ from boto3.dynamodb.conditions import Attr
 
 
 class Investment(object):
-    """"""
-
     def __init__(self):
         self.database_region = "us-east-1"
         self.client = boto3.client("dynamodb", region_name=self.database_region)
@@ -27,7 +25,7 @@ class Investment(object):
         type="Stock",
     ):
         if end_date == None:
-            end_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            end_date = datetime.datetime.now().strftime("%Y-%m-%d") + "23:59:59"
         data = self.investments.scan(
             FilterExpression=Attr("TimeStamp").between(start_date, end_date)
             & Attr("Name").eq(investment)
@@ -37,4 +35,10 @@ class Investment(object):
 
     def get_all_investment_infomration(self, type="Stock"):
         data = self.investments.scan(FilterExpression=Attr("Type").eq(type))
+        return data.get("Items")
+
+    def get_invesment_by_name(self, name, type):
+        data = self.investments.scan(
+            FilterExpression=Attr("Type").eq(type) & Attr("Name").eq(name)
+        )
         return data.get("Items")
