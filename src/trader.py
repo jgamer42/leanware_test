@@ -27,6 +27,7 @@ class Trader(object):
     def update_user_investment(self, investment_type, new_investments):
         self.user_information[investment_type] = new_investments
         output = copy.deepcopy(self.user_information)
+        self.manager.update_user_investments(new_investments,investment_type,self.user_information.get("Id"))
         output.pop("Password")
         output["Stocks"] = list(output["Stocks"])
         output["Symbols"] = list(output["Symbols"])

@@ -27,7 +27,7 @@ def get_following_investments():
         return jsonify({"message": f"woops something went wrong,{E.message}"}), 500
 
 
-@auth.login_required
+#@auth.login_required
 def update_following_investments():
     try:
         stock_controller = Investment("Stocks")

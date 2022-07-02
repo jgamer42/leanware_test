@@ -16,14 +16,14 @@ class Traders(object):
         else:
             return {"UserName": "", "message": "Usser Doesn't exist"}
 
-    def update_user_investments(self, new_investments, product_to_update, trader_name):
-        user_to_update = self.get_user_information(trader_name)
-        if "message" in user_to_update.keys():
-            return {"message": "Usser Doesn't exist"}
-        data_updated = self.traders.update_item(
-            Key={"Id": user_to_update.get("Id")},
-            UpdateExpression=f"SET {product_to_update}= :new_data",
-            ExpressionAttributeValues={":new_data": new_investments},
-            ReturnValues="UPDATED_NEW",
+    def update_user_investments(self, new_investments, investment_type, trader_id):
+        self.traders.update_item(
+            Key = {
+                "Id":trader_id
+            },
+            UpdateExpression=f"set {investment_type} = :new",
+            ExpressionAttributeValues= {
+                ":new":new_investments
+            },
+            ReturnValues="UPDATED_NEW"
         )
-        return data_updated
