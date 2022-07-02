@@ -1,6 +1,7 @@
 import boto3
 import datetime
 from boto3.dynamodb.conditions import Attr
+from botocore.exceptions import ClientError
 
 
 class Investment(object):
@@ -24,14 +25,18 @@ class Investment(object):
         end_date=None,
         type="Stock",
     ):
-        if end_date == None:
-            end_date = datetime.datetime.now().strftime("%Y-%m-%d") + "23:59:59"
-        data = self.investments.scan(
-            FilterExpression=Attr("TimeStamp").between(start_date, end_date)
-            & Attr("Name").eq(investment)
-            & Attr("Type").eq(type)
-        )
-        return data.get("Items")
+        try:
+            if end_date == None:
+                aux_end_date = datetime.datetime.now()
+                end_date = aux_end_date.strftime("%Y-%m-%d") + " 23:59:59"
+            data = self.investments.scan(
+                FilterExpression=Attr("TimeStamp").between(start_date, end_date)
+                & Attr("Name").eq(investment)
+                & Attr("Type").eq(type)
+            )
+            return data.get("Items")
+        except ClientError:
+            return []
 
     def get_all_investment_infomration(self, type="Stock"):
         data = self.investments.scan(FilterExpression=Attr("Type").eq(type))

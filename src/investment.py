@@ -42,7 +42,7 @@ class Investment(object):
         prices = self.manager.get_invesment_by_name(investment_name, self.type)
         if prices != []:
             for price in prices:
-                price["TimeStamp"] = dateHelper.get_timpestamp_object(
+                price["TimeStamp"] = dateHelper.get_timestamp_object(
                     price.get("TimeStamp")
                 )
             prices.sort(key=itemgetter("TimeStamp"))

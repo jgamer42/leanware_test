@@ -1,7 +1,4 @@
-import sys
 import pytest
-
-sys.path.append("../..")
 from src.managers.traders import Traders as TradersManager
 
 
@@ -19,8 +16,8 @@ def test_get_trader_information(trader_name, output):
     "new_investments,product_to_update,trader_name,output",
     [
         (["USD", "COP"], "Symbols", "user1", ["USD", "COP"]),
-        (["Google"], "Stockss", "user1", ["Google"]),
-        (["Google"], "Stockss", "user2", []),
+        (["Google"], "Stocks", "user1", ["Google"]),
+        (["Google"], "Stocks", "user2", []),
     ],
 )
 def test_update_trader_investment(
