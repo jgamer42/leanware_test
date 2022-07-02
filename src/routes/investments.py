@@ -15,8 +15,8 @@ investments.add_url_rule(
     methods=["GET"],
 )
 investments.add_url_rule(
-    "/stocks/price/<investment_name>/<start_date>",
-    "symbols prices",
+    "/stocks/price/<investments_name>/<start_date>",
+    "symbols prices v2",
     view.price_investments,
     methods=["GET"],
     defaults={"end_date": datetime.datetime.now().strftime("%d-%m-%Y")},

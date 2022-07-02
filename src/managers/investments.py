@@ -16,7 +16,7 @@ class Investment(object):
         data = self.investments.scan(
             FilterExpression=Attr("Type").eq(type),
         )
-        return set([d.get("Name", "") for d in data.get("Items", [])])
+        return list(set([d.get("Name", "") for d in data.get("Items", [])]))
 
     def get_price_for_investment(
         self,

@@ -12,7 +12,7 @@ from src.managers.investments import Investment as InvestmentManager
 def test_get_investments_available(type, output):
     a = InvestmentManager()
     data = a.get_investments_names_by_type(type)
-    assert data == output
+    assert set(data) == output
 
 
 @pytest.mark.parametrize(

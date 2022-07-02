@@ -20,13 +20,13 @@ def verify_token(token):
 
 
 def login_required(func):
-    def validator():
+    def validator(*args, **kwargs):
         if (
             "user" in session.keys()
             and "token" in session.keys()
             and verify_token(session.get("token"))
         ):
-            return func()
+            return func(*args, **kwargs)
         else:
             return "forbiden", 403
 

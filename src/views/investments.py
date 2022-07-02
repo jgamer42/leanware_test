@@ -1,11 +1,11 @@
-from src.helpers import auth
+from src.helpers import auth as authHelper
 from src.investment import Investment
 from flask import request, jsonify
 from botocore.exceptions import ClientError
 from flask import send_file
 
 
-@auth.login_required
+@authHelper.login_required
 def available_investments():
     investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
     investment_type = investment_type.capitalize()
@@ -14,7 +14,7 @@ def available_investments():
     return jsonify({investment_type: output}), 200
 
 
-@auth.login_required
+@authHelper.login_required
 def price_investments(investment_name, start_date, end_date):
     try:
         investment_type = request.environ.get("REQUEST_URI").split("/")[2]
@@ -23,6 +23,7 @@ def price_investments(investment_name, start_date, end_date):
         controller = Investment(investment_type)
         data = controller.get_investment_prices(investment_name, start_date, end_date)
         return jsonify(data), 200
+        # return "hola"
     except ClientError:
         return (
             jsonify(
@@ -41,7 +42,7 @@ def price_investments(investment_name, start_date, end_date):
         )
 
 
-@auth.login_required
+@authHelper.login_required
 def export():
     try:
         investment_type = request.environ.get("REQUEST_URI").split("/")[2]
