@@ -75,4 +75,4 @@ For this API is used a architecture of Model Controller View(MVC) as follows
 
 ![Architecture](img/architecture.jpg)
 
-For code documentation check [this link](https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/Index.html)
+For code documentation check [this link](https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/index.html)
