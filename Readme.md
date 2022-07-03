@@ -3,6 +3,8 @@
 [![python-flask](https://img.shields.io/static/v1?label=python&message=flask&color=yellow)](https://img.shields.io/static/v1?label=python&message=flask&color=yellow)
 [![python-pytest](https://img.shields.io/static/v1?label=python&message=pytest&color=green)](https://img.shields.io/static/v1?label=python&message=pytest&color=green)
 [![aws](https://img.shields.io/static/v1?label=AWS&message=DynamoDB&color=red)](https://img.shields.io/static/v1?label=AWS&message=DynamoDB&color=red)
+
+<h1>[Documentation](/doc)</h1>
 <h1> Pre-requisites</h1>
 
 - Had installed and runing python3
@@ -32,6 +34,11 @@ source env/bin/activate
 pip install -r requeriments.txt
 ```
 
-4. Create a .env file , and put the content from .env.example
-5. Fill the .env file
-## [Documentation](/doc)
+4. Create a reports folder
+
+```bash
+mkdir reports
+```
+
+5. Create a .env file , and put the content from .env.example
+6. Fill the .env file
