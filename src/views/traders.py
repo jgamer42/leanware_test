@@ -1,6 +1,6 @@
 from src.helpers import auth
-from traders import Trader
-from investments import Investment
+from src.traders import Trader
+from src.investments import Investment
 from cerberus import Validator
 from flask import jsonify, session, request
 

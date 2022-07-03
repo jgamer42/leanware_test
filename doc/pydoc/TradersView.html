@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
   <head>
-    <title>Python: module traders</title>
+    <title>Python: module cosa</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </head>
   <body bgcolor="#f0f0f8">
@@ -17,49 +17,23 @@
           &nbsp;<br />
           <font color="#ffffff" face="helvetica, arial"
             >&nbsp;<br /><big
-              ><big><strong>traders</strong></big></big
+              ><big><strong>cosa</strong></big></big
             ></font
           >
         </td>
         <td align="right" valign="bottom">
-          <font color="#ffffff" face="helvetica, arial">
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/index.html"
-              >Index</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/AuthHelper.html"
-              >AuthHelper</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/DateHelper.html"
-              >DateHelper</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentController.html"
-              >InvestmentController</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsManager.html"
-              >InvestmentsManager</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsView.html"
-              >InvestmentsView</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersController.html"
-              >TradersController</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersMananger.html"
-              >TradersManager</a
-            >
-            <a
-              href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersView.html"
-              >TradersView</a
-            >
-          </font>
+          <font color="#ffffff" face="helvetica, arial"
+            ><a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/index.html">Index</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/AuthHelper.html">AuthHelper</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/DateHelper.html">DateHelper</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentController.html">InvestmentController</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsManager.html">InvestmentsManager</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsView.html">InvestmentsView</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersController.html">TradersController</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersManager.html">TradersManager</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersView.html">TradersView</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/GeneralView.html">GenearlView</a></font
+          >
         </td>
       </tr>
     </table>
@@ -95,6 +69,65 @@
               <td width="25%" valign="top"></td>
             </tr>
           </table>
+        </td>
+      </tr>
+    </table>
+    <p></p>
+    <table
+      width="100%"
+      cellspacing="0"
+      cellpadding="2"
+      border="0"
+      summary="section"
+    >
+      <tr bgcolor="#eeaa77">
+        <td colspan="3" valign="bottom">
+          &nbsp;<br />
+          <font color="#ffffff" face="helvetica, arial"
+            ><big><strong>Functions</strong></big></font
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+        <td>&nbsp;</td>
+        <td width="100%">
+          <dl>
+            <dt>
+              <a name="-get_following_investments"
+                ><strong>get_following_investments</strong></a
+              >()
+            </dt>
+            <dd>
+              <tt
+                >Method&nbsp;to&nbsp;handle&nbsp;the&nbsp;route&nbsp;/traders/symbols<br />
+                GIVEN&nbsp;a&nbsp;GET&nbsp;request<br />
+                WHEN&nbsp;trader&nbsp;is&nbsp;trying&nbsp;to&nbsp;check&nbsp;wich&nbsp;symbols&nbsp;he&nbsp;follows<br />
+                THEN&nbsp;calls&nbsp;the&nbsp;trader&nbsp;controller&nbsp;to&nbsp;retrieve&nbsp;this&nbsp;information</tt
+              >
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <a name="-update_following_investments"
+                ><strong>update_following_investments</strong></a
+              >()
+            </dt>
+            <dd>
+              <tt
+                >Method&nbsp;to&nbsp;handle&nbsp;the&nbsp;route&nbsp;/traders/symbols/update<br />
+                GIVEN&nbsp;a&nbsp;PUT&nbsp;request<br />
+                WHEN&nbsp;trader&nbsp;is&nbsp;trying&nbsp;tu&nbsp;update&nbsp;the&nbsp;symbols&nbsp;that&nbsp;he&nbsp;follows<br />
+                THEN&nbsp;calls&nbsp;the&nbsp;investment&nbsp;controller&nbsp;and&nbsp;the&nbsp;trader&nbsp;controller<br />
+                AND&nbsp;checks&nbsp;if&nbsp;the&nbsp;request&nbsp;is&nbsp;correct,&nbsp;the&nbsp;request&nbsp;may&nbsp;have&nbsp;the&nbsp;following&nbsp;structure<br />
+                {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;"Symbols":["List&nbsp;with&nbsp;the&nbsp;symbols&nbsp;to&nbsp;follow&nbsp;and&nbsp;exists&nbsp;in&nbsp;the&nbsp;API"]<br />
+                }<br />
+                AND&nbsp;retrieve&nbsp;the&nbsp;information</tt
+              >
+            </dd>
+          </dl>
         </td>
       </tr>
     </table>

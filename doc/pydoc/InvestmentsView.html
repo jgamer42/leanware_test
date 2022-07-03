@@ -22,17 +22,18 @@
           >
         </td>
         <td align="right" valign="bottom">
-            <font color="#ffffff" face="helvetica, arial">
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/index.html">Index</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/AuthHelper.html">AuthHelper</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/DateHelper.html">DateHelper</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentController.html">InvestmentController</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsManager.html">InvestmentsManager</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsView.html">InvestmentsView</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersController.html">TradersController</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersMananger.html">TradersManager</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersView.html">TradersView</a>
-            </font>
+          <font color="#ffffff" face="helvetica, arial"
+            ><a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/index.html">Index</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/AuthHelper.html">AuthHelper</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/DateHelper.html">DateHelper</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentController.html">InvestmentController</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsManager.html">InvestmentsManager</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsView.html">InvestmentsView</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersController.html">TradersController</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersManager.html">TradersManager</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersView.html">TradersView</a>
+            <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/GeneralView.html">GenearlView</a></font
+          >
         </td>
       </tr>
     </table>
@@ -68,6 +69,77 @@
               <td width="25%" valign="top"></td>
             </tr>
           </table>
+        </td>
+      </tr>
+    </table>
+    <p></p>
+    <table
+      width="100%"
+      cellspacing="0"
+      cellpadding="2"
+      border="0"
+      summary="section"
+    >
+      <tr bgcolor="#eeaa77">
+        <td colspan="3" valign="bottom">
+          &nbsp;<br />
+          <font color="#ffffff" face="helvetica, arial"
+            ><big><strong>Functions</strong></big></font
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+        <td>&nbsp;</td>
+        <td width="100%">
+          <dl>
+            <dt>
+              <a name="-available_investments"
+                ><strong>available_investments</strong></a
+              >()
+            </dt>
+            <dd>
+              <tt
+                >Method&nbsp;to&nbsp;handle&nbsp;the&nbsp;route&nbsp;/investments/symbols<br />
+                GIVEN&nbsp;a&nbsp;trader<br />
+                WHEN&nbsp;making&nbsp;a&nbsp;GET&nbsp;request&nbsp;to&nbsp;retrieve&nbsp;available&nbsp;symbols&nbsp;on&nbsp;the&nbsp;API<br />
+                THEN&nbsp;calls&nbsp;to&nbsp;investment&nbsp;controller&nbsp;to&nbsp;retrieve&nbsp;those&nbsp;information</tt
+              >
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <a name="-export"><strong>export</strong></a
+              >()
+            </dt>
+            <dd>
+              <tt
+                >Method&nbsp;to&nbsp;handle&nbsp;the&nbsp;route<br />
+                /investments/stocks/export<br />
+                GIVEN&nbsp;a&nbsp;GET&nbsp;request<br />
+                WHEN&nbsp;a&nbsp;trader&nbsp;trying&nbsp;to&nbsp;export&nbsp;all&nbsp;the&nbsp;symbol&nbsp;prices<br />
+                THEN&nbsp;calls&nbsp;the&nbsp;investment&nbsp;controller&nbsp;to&nbsp;build&nbsp;the&nbsp;.csv&nbsp;file<br />
+                AND&nbsp;bring&nbsp;them&nbsp;to&nbsp;the&nbsp;trader</tt
+              >
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <a name="-price_investments"><strong>price_investments</strong></a
+              >(investment_name, start_date, end_date)
+            </dt>
+            <dd>
+              <tt
+                >Method&nbsp;to&nbsp;handle&nbsp;the&nbsp;routes<br />
+                /investments/stocks/&lt;investment_mane&gt;/&lt;start_date&gt;<br />
+                /investments/stocks/&lt;investment_mane&gt;/&lt;start_date&gt;/&lt;end_date&gt;<br />
+                GIVEN&nbsp;a&nbsp;stock&nbsp;,&nbsp;start_date,&nbsp;end_date&nbsp;(optional)<br />
+                WHEN&nbsp;a&nbsp;trader&nbsp;trying&nbsp;to&nbsp;get&nbsp;the&nbsp;prices&nbsp;from&nbsp;a&nbsp;stocks&nbsp;in&nbsp;a&nbsp;timeframe<br />
+                THEN&nbsp;calls&nbsp;the&nbsp;investment&nbsp;controller&nbsp;to&nbsp;retrieve&nbsp;those&nbsp;information</tt
+              >
+            </dd>
+          </dl>
         </td>
       </tr>
     </table>
