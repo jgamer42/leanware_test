@@ -1,3 +1,4 @@
+import os
 import boto3
 from boto3.dynamodb.conditions import Attr
 
@@ -8,10 +9,10 @@ class Traders(object):
     """
 
     def __init__(self):
-        self.database_region = "us-east-1"
+        self.database_region = os.getenv("AWS_DYNAMO_DB_REGION")
         self.client = boto3.client("dynamodb", region_name=self.database_region)
         resource = boto3.resource("dynamodb", region_name=self.database_region)
-        self.traders = resource.Table("Traders")
+        self.traders = resource.Table(os.getenv("TRADERS_TABLE"))
 
     def get_user_information(self, trader_name):
         """
@@ -41,8 +42,6 @@ class Traders(object):
                 ExpressionAttributeValues={":new": new_investments},
                 ReturnValues="UPDATED_NEW",
             )
-            print(output)
             return output
         except Exception as E:
-            print(E)
             return {"message": "Usser Doesn't exist"}

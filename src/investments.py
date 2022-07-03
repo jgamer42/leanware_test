@@ -1,9 +1,10 @@
+import os
+import uuid
 import hashlib
 import pandas as pd
-from src.managers import Investment as InvestmentManager
-from src.helpers import date as dateHelper
-import uuid
 from operator import itemgetter
+from src.helpers import date as dateHelper
+from src.managers import Investment as InvestmentManager
 
 
 class Investment(object):
@@ -53,10 +54,9 @@ class Investment(object):
         output_file = hashlib.md5((self.type + str(uuid.uuid4)).encode()).hexdigest()
         data_to_export = self.manager.get_all_investment_information(self.type)
         dataframe = pd.DataFrame(data_to_export)
-        dataframe.to_csv(
-            f"/home/user/Escritorio/leanware_test/reports/{output_file}.csv"
-        )
-        return f"/home/user/Escritorio/leanware_test/reports/{output_file}.csv"
+        path_to_reports = os.getenv("REPORTS_PATH")
+        dataframe.to_csv(f"{path_to_reports}/{output_file}.csv")
+        return f"{path_to_reports}/{output_file}.csv"
 
     def get_last_price_investment(self, investment_name):
         """

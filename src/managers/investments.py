@@ -1,3 +1,4 @@
+import os
 import boto3
 import datetime
 from boto3.dynamodb.conditions import Attr
@@ -10,10 +11,10 @@ class Investment(object):
     """
 
     def __init__(self):
-        self.database_region = "us-east-1"
+        self.database_region = os.getenv("AWS_DYNAMO_DB_REGION")
         self.client = boto3.client("dynamodb", region_name=self.database_region)
         resource = boto3.resource("dynamodb", region_name=self.database_region)
-        self.investments = resource.Table("Inversiones")
+        self.investments = resource.Table(os.getenv("INVESTMENT_TABLE"))
 
     def get_investments_names_by_type(self, type):
         """

@@ -1,3 +1,4 @@
+import os
 import jwt
 import time
 from flask import session
@@ -9,8 +10,12 @@ def generate_token(username):
     :param username: Str with the user to use the token
     :return token: token generated
     """
+    token_life = int(os.getenv("TOKEN_LIFETIME"))
+    secret_key = os.getenv("SECRET_KEY")
     token = jwt.encode(
-        {"user": username, "expires": time.time() + 60}, "secretKey", algorithm="HS256"
+        {"user": username, "expires": time.time() + token_life},
+        secret_key,
+        algorithm="HS256",
     )
     return token
 
@@ -24,7 +29,8 @@ def verify_token(token):
     :param token: token to validate
     :return bool: True if the token is valid False if not
     """
-    decript = jwt.decode(token, "secretKey", algorithms=["HS256"])
+    secret_key = os.getenv("SECRET_KEY")
+    decript = jwt.decode(token, secret_key, algorithms=["HS256"])
     return (
         "user" in decript.keys()
         and "expires" in decript.keys()
