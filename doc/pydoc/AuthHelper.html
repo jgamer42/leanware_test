@@ -1,49 +1,166 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module auth</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
-
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>auth</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/user/Escritorio/leanware_test/src/helpers/auth.py">/home/user/Escritorio/leanware_test/src/helpers/auth.py</a></font></td></tr></table>
+<html>
+  <head>
+    <title>Python: module auth</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body bgcolor="#f0f0f8">
+    <table
+      width="100%"
+      cellspacing="0"
+      cellpadding="2"
+      border="0"
+      summary="heading"
+    >
+      <tr bgcolor="#7799ee">
+        <td valign="bottom">
+          &nbsp;<br />
+          <font color="#ffffff" face="helvetica, arial"
+            >&nbsp;<br /><big
+              ><big><strong>auth</strong></big></big
+            ></font
+          >
+        </td>
+        <td align="right" valign="bottom">
+            <font color="#ffffff" face="helvetica, arial">
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/Index.html">Index</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/AuthHelper.html">AuthHelper</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/DateHelper.html">DateHelper</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentController.html">InvestmentController</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsManager.html">InvestmentsManager</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/InvestmentsView.html">InvestmentsView</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersController.html">TradersController</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersMananger.html">TradersManager</a>
+                <a href="https://htmlpreview.github.io/?https://github.com/jgamer42/leanware_test/blob/master/doc/pydoc/TradersView.html">TradersView</a>
+            </font>
+        </td>
+      </tr>
+    </table>
     <p></p>
-<p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#aa55cc">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="jwt.html">jwt</a><br>
-</td><td width="25%" valign=top><a href="time.html">time</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-generate_token"><strong>generate_token</strong></a>(username)</dt><dd><tt>Function&nbsp;to&nbsp;generate&nbsp;a&nbsp;JWT&nbsp;token<br>
-:param&nbsp;username:&nbsp;Str&nbsp;with&nbsp;the&nbsp;user&nbsp;to&nbsp;use&nbsp;the&nbsp;token<br>
-:return&nbsp;token:&nbsp;token&nbsp;generated</tt></dd></dl>
- <dl><dt><a name="-login_required"><strong>login_required</strong></a>(func)</dt><dd><tt>Decorator&nbsp;to&nbsp;check&nbsp;if&nbsp;a&nbsp;user&nbsp;loged&nbsp;or&nbsp;no<br>
-:param&nbsp;func:&nbsp;A&nbsp;pointer&nbsp;to&nbsp;the&nbsp;function&nbsp;with&nbsp;this&nbsp;constraint<br>
-:return&nbsp;func:&nbsp;the&nbsp;func&nbsp;with&nbsp;the&nbsp;constraint</tt></dd></dl>
- <dl><dt><a name="-verify_token"><strong>verify_token</strong></a>(token)</dt><dd><tt>Function&nbsp;to&nbsp;validate&nbsp;a&nbsp;JWT&nbsp;token<br>
-To&nbsp;the&nbsp;token&nbsp;validations&nbsp;this&nbsp;methods&nbsp;checks:<br>
--&nbsp;if&nbsp;the&nbsp;token&nbsp;is&nbsp;expired<br>
--&nbsp;if&nbsp;the&nbsp;token&nbsp;has&nbsp;rigth&nbsp;structure<br>
-:param&nbsp;token:&nbsp;token&nbsp;to&nbsp;validate<br>
-:return&nbsp;bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;token&nbsp;is&nbsp;valid&nbsp;False&nbsp;if&nbsp;not</tt></dd></dl>
-</td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>session</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
-</body></html>
+    <p></p>
+    <table
+      width="100%"
+      cellspacing="0"
+      cellpadding="2"
+      border="0"
+      summary="section"
+    >
+      <tr bgcolor="#aa55cc">
+        <td colspan="3" valign="bottom">
+          &nbsp;<br />
+          <font color="#ffffff" face="helvetica, arial"
+            ><big><strong>Modules</strong></big></font
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+        <td>&nbsp;</td>
+        <td width="100%">
+          <table width="100%" summary="list">
+            <tr>
+              <td width="25%" valign="top"><a href="jwt.html">jwt</a><br /></td>
+              <td width="25%" valign="top">
+                <a href="time.html">time</a><br />
+              </td>
+              <td width="25%" valign="top"></td>
+              <td width="25%" valign="top"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <p></p>
+    <table
+      width="100%"
+      cellspacing="0"
+      cellpadding="2"
+      border="0"
+      summary="section"
+    >
+      <tr bgcolor="#eeaa77">
+        <td colspan="3" valign="bottom">
+          &nbsp;<br />
+          <font color="#ffffff" face="helvetica, arial"
+            ><big><strong>Functions</strong></big></font
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+        <td>&nbsp;</td>
+        <td width="100%">
+          <dl>
+            <dt>
+              <a name="-generate_token"><strong>generate_token</strong></a
+              >(username)
+            </dt>
+            <dd>
+              <tt
+                >Function&nbsp;to&nbsp;generate&nbsp;a&nbsp;JWT&nbsp;token<br />
+                :param&nbsp;username:&nbsp;Str&nbsp;with&nbsp;the&nbsp;user&nbsp;to&nbsp;use&nbsp;the&nbsp;token<br />
+                :return&nbsp;token:&nbsp;token&nbsp;generated</tt
+              >
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <a name="-login_required"><strong>login_required</strong></a
+              >(func)
+            </dt>
+            <dd>
+              <tt
+                >Decorator&nbsp;to&nbsp;check&nbsp;if&nbsp;a&nbsp;user&nbsp;loged&nbsp;or&nbsp;no<br />
+                :param&nbsp;func:&nbsp;A&nbsp;pointer&nbsp;to&nbsp;the&nbsp;function&nbsp;with&nbsp;this&nbsp;constraint<br />
+                :return&nbsp;func:&nbsp;the&nbsp;func&nbsp;with&nbsp;the&nbsp;constraint</tt
+              >
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <a name="-verify_token"><strong>verify_token</strong></a
+              >(token)
+            </dt>
+            <dd>
+              <tt
+                >Function&nbsp;to&nbsp;validate&nbsp;a&nbsp;JWT&nbsp;token<br />
+                To&nbsp;the&nbsp;token&nbsp;validations&nbsp;this&nbsp;methods&nbsp;checks:<br />
+                -&nbsp;if&nbsp;the&nbsp;token&nbsp;is&nbsp;expired<br />
+                -&nbsp;if&nbsp;the&nbsp;token&nbsp;has&nbsp;rigth&nbsp;structure<br />
+                :param&nbsp;token:&nbsp;token&nbsp;to&nbsp;validate<br />
+                :return&nbsp;bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;token&nbsp;is&nbsp;valid&nbsp;False&nbsp;if&nbsp;not</tt
+              >
+            </dd>
+          </dl>
+        </td>
+      </tr>
+    </table>
+    <p></p>
+    <table
+      width="100%"
+      cellspacing="0"
+      cellpadding="2"
+      border="0"
+      summary="section"
+    >
+      <tr bgcolor="#55aa55">
+        <td colspan="3" valign="bottom">
+          &nbsp;<br />
+          <font color="#ffffff" face="helvetica, arial"
+            ><big><strong>Data</strong></big></font
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td>
+        <td>&nbsp;</td>
+        <td width="100%">
+          <strong>session</strong> = &lt;LocalProxy unbound&gt;
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
