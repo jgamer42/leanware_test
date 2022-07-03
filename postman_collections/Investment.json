@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "63860f37-9bc4-4d06-bb79-95c60f434aa4",
+		"name": "Investment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Avaialable symbols",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/investments/symbols",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"investments",
+						"symbols"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Export stocks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/investments/stocks/export",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"investments",
+						"stocks",
+						"export"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Timeframe prices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/investments/stocks/price/google/29-06-2022/01-07-2022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"investments",
+						"stocks",
+						"price",
+						"google",
+						"29-06-2022",
+						"01-07-2022"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

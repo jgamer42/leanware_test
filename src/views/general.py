@@ -1,6 +1,6 @@
 from cerberus import Validator
 from flask import request, jsonify, session
-from src.trader import Trader
+from src.traders import Trader
 from src.helpers import auth
 
 
@@ -39,7 +39,7 @@ def login():
 def logout():
     """
     Method used as a handler to the logout API rout
-    Given a trader
+    Given a trader 
     When is loging out from the API
     Then clean the session object
     """

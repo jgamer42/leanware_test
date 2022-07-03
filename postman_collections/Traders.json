@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "f1341aa6-3d25-4121-80f3-1fbe33450d2b",
+		"name": "Traders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Following investments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/traders/symbols",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"traders",
+						"symbols"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update symbols",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Symbols\":[\"COP\",\"USD\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/traders/symbols/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"traders",
+						"symbols",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
