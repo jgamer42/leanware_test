@@ -9,7 +9,7 @@ from flask import send_file
 def available_investments():
     """
     Method to handle the route /investments/symbols
-    GIVEN a trader 
+    GIVEN a trader
     WHEN making a GET request to retrieve available symbols on the API
     THEN calls to investment controller to retrieve those information
     """

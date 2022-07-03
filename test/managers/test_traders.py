@@ -15,9 +15,9 @@ def test_get_trader_information(trader_name, output):
 @pytest.mark.parametrize(
     "new_investments,product_to_update,trader_name,output",
     [
-        (["USD", "COP"], "Symbols", "user1", ["USD", "COP"]),
-        (["Google"], "Stocks", "user1", ["Google"]),
-        (["Google"], "Stocks", "user2", []),
+        (["USD", "COP"], "Symbols", "656516wd", ["USD", "COP"]),
+        (["Google"], "Stocks", "656516wd", ["Google"]),
+        (["Google"], "Stocks", "656516wdawd", []),
     ],
 )
 def test_update_trader_investment(

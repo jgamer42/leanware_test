@@ -253,3 +253,4 @@ cython_debug/
 reports
 .vscode
 .coverage
+.env

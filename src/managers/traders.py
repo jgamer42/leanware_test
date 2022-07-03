@@ -33,9 +33,16 @@ class Traders(object):
         :param trader_id: Str with the id for the trader
         :return:
         """
-        self.traders.update_item(
-            Key={"Id": trader_id},
-            UpdateExpression=f"set {investment_type} = :new",
-            ExpressionAttributeValues={":new": new_investments},
-            ReturnValues="UPDATED_NEW",
-        )
+        try:
+            output = self.traders.update_item(
+                Key={"Id": trader_id},
+                UpdateExpression=f"set {investment_type} = :new",
+                ConditionExpression=f"attribute_exists({investment_type})",
+                ExpressionAttributeValues={":new": new_investments},
+                ReturnValues="UPDATED_NEW",
+            )
+            print(output)
+            return output
+        except Exception as E:
+            print(E)
+            return {"message": "Usser Doesn't exist"}
