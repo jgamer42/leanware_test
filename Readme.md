@@ -1,10 +1,10 @@
 
-<h1> Leanware technical test </h1>
+# Leanware technical test 
 ![python-flask](https://img.shields.io/static/v1?label=python&message=flask&color=yellow)
 ![python-pytest](https://img.shields.io/static/v1?label=python&message=pytest&color=green)
 ![aws](https://img.shields.io/static/v1?label=AWS&message=DynamoDB&color=red)
 
-<h1>[Documentation](/doc)</h1>
+## [Documentation](/doc)
 <h1> Pre-requisites</h1>
 
 - Had installed and runing python3
