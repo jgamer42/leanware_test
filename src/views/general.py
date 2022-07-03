@@ -5,6 +5,18 @@ from src.helpers import auth
 
 
 def login():
+    """
+    Method used as handler for the login API route
+    Given a post request in /login with the following request Ie:
+    {
+        "username":"user1",
+        "password":"secure_password"
+    }
+    When a trader is trying to login int the API
+    Then validate the user information
+    and check if is registred
+    and check if the password if right
+    """
     expected_request = {
         "username": {"type": "string"},
         "password": {"type": "string"},
@@ -25,6 +37,12 @@ def login():
 
 @auth.login_required
 def logout():
+    """
+    Method used as a handler to the logout API rout
+    Given a trader
+    When is loging out from the API
+    Then clean the session object
+    """
     session.pop("token")
     session.pop("user")
     return jsonify({"message": "See you later"}), 200

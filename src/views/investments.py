@@ -7,6 +7,12 @@ from flask import send_file
 
 @authHelper.login_required
 def available_investments():
+    """
+    Method to handle the route /investments/symbols
+    GIVEN a trader
+    WHEN making a GET request to retrieve available symbols on the API
+    THEN calls to investment controller to retrieve those information
+    """
     investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
     investment_type = investment_type.capitalize()
     controller = Investment(investment_type)
@@ -16,6 +22,14 @@ def available_investments():
 
 @authHelper.login_required
 def price_investments(investment_name, start_date, end_date):
+    """
+    Method to handle the routes
+    /investments/stocks/<investment_mane>/<start_date>
+    /investments/stocks/<investment_mane>/<start_date>/<end_date>
+    GIVEN a stock , start_date, end_date (optional)
+    WHEN a trader trying to get the prices from a stocks in a timeframe
+    THEN calls the investment controller to retrieve those information
+    """
     try:
         investment_type = request.environ.get("REQUEST_URI").split("/")[2]
         investment_type = investment_type.capitalize()
@@ -23,7 +37,6 @@ def price_investments(investment_name, start_date, end_date):
         controller = Investment(investment_type)
         data = controller.get_investment_prices(investment_name, start_date, end_date)
         return jsonify(data), 200
-        # return "hola"
     except ClientError:
         return (
             jsonify(
@@ -44,6 +57,14 @@ def price_investments(investment_name, start_date, end_date):
 
 @authHelper.login_required
 def export():
+    """
+    Method to handle the route
+    /investments/stocks/export
+    GIVEN a GET request
+    WHEN a trader trying to export all the symbol prices
+    THEN calls the investment controller to build the .csv file
+    AND bring them to the trader
+    """
     try:
         investment_type = request.environ.get("REQUEST_URI").split("/")[2]
         investment_type = investment_type.capitalize()

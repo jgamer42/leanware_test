@@ -1,12 +1,18 @@
 from src.helpers import auth
-from src.trader import Trader
-from src.investment import Investment
+from traders import Trader
+from investments import Investment
 from cerberus import Validator
 from flask import jsonify, session, request
 
 
 @auth.login_required
 def get_following_investments():
+    """
+    Method to handle the route /traders/symbols
+    GIVEN a GET request
+    WHEN trader is trying to check wich symbols he follows
+    THEN calls the trader controller to retrieve this information
+    """
     try:
         output = {}
         investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
@@ -27,8 +33,19 @@ def get_following_investments():
         return jsonify({"message": f"woops something went wrong,{E.message}"}), 500
 
 
-#@auth.login_required
+@auth.login_required
 def update_following_investments():
+    """
+    Method to handle the route /traders/symbols/update
+    GIVEN a PUT request
+    WHEN trader is trying tu update the symbols that he follows
+    THEN calls the investment controller and the trader controller
+    AND checks if the request is correct, the request may have the following structure
+    {
+        "Symbols":["List with the symbols to follow and exists in the API"]
+    }
+    AND retrieve the information
+    """
     try:
         stock_controller = Investment("Stocks")
         symbol_controller = Investment("Symbols")
@@ -60,5 +77,4 @@ def update_following_investments():
         )
         return jsonify(output), 200
     except Exception as E:
-        print(str(E.__traceback__), dir(E))
         return jsonify({"message": f"woops something went wrong, {E}"}), 500
