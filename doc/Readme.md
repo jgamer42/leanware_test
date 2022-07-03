@@ -11,7 +11,8 @@ case the allowed types are Symbols (for country moneys Ie COP) and Stocks(for bu
 
 <h1> Data design </h1>
 <h3>Trader</h3>
-```json
+
+```javascript
 {
     "Id":"644sw",
     "Password":"8d9d883a0eb4723e2f614b2c4240f7"
@@ -20,10 +21,12 @@ case the allowed types are Symbols (for country moneys Ie COP) and Stocks(for bu
     "UserName":"user1"
 }
 ```
+
 The password is stored with a HASH-MD5
 
 <h3>Investment</h3>
-```json
+
+```javascript
 {
     "Id":"4154",
     "Name":"COP"
