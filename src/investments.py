@@ -12,9 +12,12 @@ class Investment(object):
     Class used as controller for investments
     """
 
-    def __init__(self, type):
+    def __init__(self, type, manager=None):
         self.type = type[:-1]
-        self.manager = InvestmentManager()
+        if manager == None:
+            self.manager = InvestmentManager()
+        else:
+            self.manager = manager
 
     def get_investments_available(self):
         """
@@ -73,9 +76,9 @@ class Investment(object):
             prices.sort(key=itemgetter("TimeStamp"))
             output = prices[-1]
             return {
-                "message": "last price registred",
-                "timeStamp": output.get("TimeStamp"),
-                "prices": output.get("Price"),
+                "Message": "last price registred",
+                "TimeStamp": output.get("TimeStamp"),
+                "Price": output.get("Price"),
             }
         else:
             return {"message": "not prices registred"}

@@ -9,9 +9,12 @@ class Trader(object):
     also a trader works as User
     """
 
-    def __init__(self, username):
+    def __init__(self, username, manager=None):
         self.username = username
-        self.manager = Traders()
+        if manager == None:
+            self.manager = Traders()
+        else:
+            self.manager = manager
         self.user_information = self.get_user_info()
 
     def login(self, password):
@@ -30,10 +33,14 @@ class Trader(object):
         :return dict: A dict with the user information
         """
         if not hasattr(self, "user_information"):
-            self.user_information = self.manager.get_user_information(self.username)
+            user_information = self.manager.get_user_information(self.username)
+            if user_information and user_information.get("UserName") == self.username:
+                self.user_information = user_information
+            else:
+                raise Exception("User Doesn't exists")
         return self.user_information
 
-    def get_follwing_investment(self, investment_type):
+    def get_following_investment(self, investment_type):
         """
         Method to get which investments follows the trader
         :param investment_type: Str with the type of investment to get the info

@@ -10,8 +10,8 @@ def generate_token(username):
     :param username: Str with the user to use the token
     :return token: token generated
     """
-    token_life = int(os.getenv("TOKEN_LIFETIME"))
-    secret_key = os.getenv("SECRET_KEY")
+    token_life = int(os.getenv("TOKEN_LIFETIME", 60))
+    secret_key = os.getenv("SECRET_KEY", "default_key")
     token = jwt.encode(
         {"user": username, "expires": time.time() + token_life},
         secret_key,
@@ -29,8 +29,8 @@ def verify_token(token):
     :param token: token to validate
     :return bool: True if the token is valid False if not
     """
-    secret_key = os.getenv("SECRET_KEY")
-    decript = jwt.decode(token, secret_key, algorithms=["HS256"])
+    secret_key = os.getenv("SECRET_KEY", "default_key")
+    decript = jwt.decode(token, secret_key, algorithms="HS256")
     return (
         "user" in decript.keys()
         and "expires" in decript.keys()

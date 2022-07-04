@@ -20,7 +20,7 @@ def get_following_investments():
         user = session.get("user")
         trader_controller = Trader(user)
         investment_controller = Investment(investment_type)
-        following_investment = trader_controller.get_follwing_investment(
+        following_investment = trader_controller.get_following_investment(
             investment_type
         )
         for investment in following_investment:

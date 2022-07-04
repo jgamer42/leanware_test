@@ -1,7 +1,10 @@
 import pytest
+import time
 from src.helpers import auth as authHelper
 
 
-def test_token_generation():
+@pytest.mark.parametrize("sleep,output", [(10, True), (70, False)])
+def test_token_generation(sleep, output):
     token = authHelper.generate_token("user1")
-    assert True == authHelper.verify_token(token)
+    time.sleep(sleep)
+    assert output == authHelper.verify_token(token)

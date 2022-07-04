@@ -47,3 +47,7 @@ mkdir reports
 ```bash
 python main.py
 ```
+
+<h1>Steps forward</h1>
+- Add integrations test in the endpoints
+- Check why auth test fails when runing with Code coverage check
