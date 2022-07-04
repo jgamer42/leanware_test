@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask,jsonify
 from dotenv import load_dotenv
 from src.routes import traders, investments, general
 
@@ -14,27 +14,22 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 @app.errorhandler(404)
 def method_not_allowed(a):
-    return "not found pls ask for help"
-
-
-@app.errorhandler(404)
-def not_found(a):
-    return "not found pls ask for help"
+    return jsonify({"Message":"not found pls ask for help"})
 
 
 @app.errorhandler(401)
 def forbiden(a):
-    return "forbiden"
+    return jsonify({"Message":"Not loged pls login to the API"})
 
 
 @app.errorhandler(400)
 def bad_request(a):
-    return "not found pls ask for help"
+    return jsonify({"Message":"Bad request , pls review the URL or the payload"})
 
 
 @app.errorhandler(500)
 def server_error(a):
-    return "woops something wrong"
+    return jsonify({"Message":"interal server error pls call to support"})
 
 
 if __name__ == "__main__":

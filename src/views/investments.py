@@ -36,7 +36,10 @@ def price_investments(investment_name, start_date, end_date):
         investment_name = investment_name.capitalize()
         controller = Investment(investment_type)
         data = controller.get_investment_prices(investment_name, start_date, end_date)
-        return jsonify(data), 200
+        if data != []:
+            return jsonify(data), 200
+        else:
+            return jsonify({"Message":"Not prices registred on this timeframe"}),200
     except ClientError:
         return (
             jsonify(
