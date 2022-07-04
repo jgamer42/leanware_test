@@ -41,7 +41,7 @@ def price_investments(investment_name, start_date, end_date):
         return (
             jsonify(
                 {
-                    "message": "The first payment date must be previus than today or the end date"
+                    "Message": "The first payment date must be previus than today or the end date"
                 }
             ),
             400,
@@ -49,7 +49,7 @@ def price_investments(investment_name, start_date, end_date):
     except Exception:
         return (
             jsonify(
-                {"message": "The first payment date must has the format dd-mm-yyyy"}
+                {"Message": "The first payment date must has the format dd-mm-yyyy"}
             ),
             400,
         )
@@ -72,4 +72,4 @@ def export():
         file = controller.export_all_investment_prices()
         return send_file(file, attachment_filename="data.csv")
     except:
-        return jsonify({"message": "Something went wrong"}), 500
+        return jsonify({"Message": "Something went wrong"}), 500

@@ -81,4 +81,4 @@ class Investment(object):
                 "Price": output.get("Price"),
             }
         else:
-            return {"message": "not prices registred"}
+            return {"Message": "not prices registred"}

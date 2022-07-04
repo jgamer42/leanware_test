@@ -26,7 +26,7 @@ class Traders(object):
         if data.get("Items") != []:
             return data.get("Items")[0]
         else:
-            return {"UserName": "", "message": "Usser Doesn't exist"}
+            return {"UserName": "", "Message": "Usser Doesn't exist"}
 
     def update_user_investments(self, new_investments, investment_type, trader_id):
         """
@@ -46,4 +46,4 @@ class Traders(object):
             )
             return output
         except Exception as E:
-            return {"message": "Usser Doesn't exist"}
+            return {"Message": "Usser Doesn't exist"}

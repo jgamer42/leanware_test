@@ -80,8 +80,8 @@ def test_update_trader_investment(
         table.put_item(Item=item)
     a = TradersManager(db)
     data = a.update_user_investments(new_investments, product_to_update, trader_name)
-    if "message" not in data.keys():
+    if "Message" not in data.keys():
         assert "Attributes" in data.keys()
         assert data.get("Attributes").get(product_to_update) == output
     else:
-        assert data.get("message") == "Usser Doesn't exist"
+        assert data.get("Message") == "Usser Doesn't exist"

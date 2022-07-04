@@ -30,7 +30,7 @@ def get_following_investments():
 
         return jsonify(output), 200
     except Exception as E:
-        return jsonify({"message": f"woops something went wrong,{E.message}"}), 500
+        return jsonify({"Message": f"woops something went wrong,{E.Message}"}), 500
 
 
 @auth.login_required
@@ -69,7 +69,7 @@ def update_following_investments():
         validator = Validator()
         validator.schema = expected_request
         if not validator.validate(request.json):
-            return jsonify({"message": "bad request", "details": validator.errors}), 500
+            return jsonify({"Message": "bad request", "details": validator.errors}), 500
         trader_controller = Trader(user)
         new_investments = request.json.get(investment_type)
         output = trader_controller.update_user_investment(
@@ -77,4 +77,4 @@ def update_following_investments():
         )
         return jsonify(output), 200
     except Exception as E:
-        return jsonify({"message": f"woops something went wrong, {E}"}), 500
+        return jsonify({"Message": f"woops something went wrong, {E}"}), 500
