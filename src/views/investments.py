@@ -39,7 +39,7 @@ def price_investments(investment_name, start_date, end_date):
         if data != []:
             return jsonify(data), 200
         else:
-            return jsonify({"Message":"Not prices registred on this timeframe"}),200
+            return jsonify({"Message": "Not prices registred on this timeframe"}), 200
     except ClientError:
         return (
             jsonify(
