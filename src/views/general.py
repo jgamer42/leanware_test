@@ -46,3 +46,11 @@ def logout():
     session.pop("token")
     session.pop("user")
     return jsonify({"Message": "See you later"}), 200
+
+
+def main_page():
+    return jsonify(
+        {
+            "Message": "Hello this an API for leanware technical test pls login at /login to continue"
+        }
+    )

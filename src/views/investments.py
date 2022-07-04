@@ -13,7 +13,10 @@ def available_investments():
     WHEN making a GET request to retrieve available symbols on the API
     THEN calls to investment controller to retrieve those information
     """
-    investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
+    if request.environ.get("REQUEST_URI") != None:
+        investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
+    else:
+        investment_type = request.environ.get("PATH_INFO").split("/")[-1]
     investment_type = investment_type.capitalize()
     controller = Investment(investment_type)
     output = controller.get_investments_available()
@@ -31,7 +34,10 @@ def price_investments(investment_name, start_date, end_date):
     THEN calls the investment controller to retrieve those information
     """
     try:
-        investment_type = request.environ.get("REQUEST_URI").split("/")[2]
+        if request.environ.get("REQUEST_URI") != None:
+            investment_type = request.environ.get("REQUEST_URI").split("/")[2]
+        else:
+            investment_type = request.environ.get("PATH_INFO").split("/")[2]
         investment_type = investment_type.capitalize()
         investment_name = investment_name.capitalize()
         controller = Investment(investment_type)
@@ -69,7 +75,10 @@ def export():
     AND bring them to the trader
     """
     try:
-        investment_type = request.environ.get("REQUEST_URI").split("/")[2]
+        if request.environ.get("REQUEST_URI") != None:
+            investment_type = request.environ.get("REQUEST_URI").split("/")[2]
+        else:
+            investment_type = request.environ.get("PATH_INFO").split("/")[2]
         investment_type = investment_type.capitalize()
         controller = Investment(investment_type)
         file = controller.export_all_investment_prices()

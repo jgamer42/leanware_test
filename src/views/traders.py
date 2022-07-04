@@ -15,7 +15,10 @@ def get_following_investments():
     """
     try:
         output = {}
-        investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
+        if request.environ.get("REQUEST_URI") != None:
+            investment_type = request.environ.get("REQUEST_URI").split("/")[-1]
+        else:
+            investment_type = request.environ.get("PATH_INFO").split("/")[-1]
         investment_type = investment_type.capitalize()
         user = session.get("user")
         trader_controller = Trader(user)
@@ -30,7 +33,7 @@ def get_following_investments():
 
         return jsonify(output), 200
     except Exception as E:
-        return jsonify({"Message": f"woops something went wrong,{E.Message}"}), 500
+        return jsonify({"Message": f"woops something went wrong,{E}"}), 500
 
 
 @auth.login_required
@@ -49,7 +52,10 @@ def update_following_investments():
     try:
         stock_controller = Investment("Stocks")
         symbol_controller = Investment("Symbols")
-        investment_type = request.environ.get("REQUEST_URI").split("/")[2]
+        if request.environ.get("REQUEST_URI") != None:
+            investment_type = request.environ.get("REQUEST_URI").split("/")[2]
+        else:
+            investment_type = request.environ.get("PATH_INFO").split("/")[2]
         investment_type = investment_type.capitalize()
         user = session.get("user")
         expected_request = {
