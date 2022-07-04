@@ -8,11 +8,13 @@ class Traders(object):
     Class used as a manager for Dynamo DB
     """
 
-    def __init__(self):
+    def __init__(self, db=None):
         self.database_region = os.getenv("AWS_DYNAMO_DB_REGION")
-        self.client = boto3.client("dynamodb", region_name=self.database_region)
-        resource = boto3.resource("dynamodb", region_name=self.database_region)
-        self.traders = resource.Table(os.getenv("TRADERS_TABLE"))
+        if db == None:
+            self.resource = boto3.resource("dynamodb", region_name=self.database_region)
+        else:
+            self.resource = db
+        self.traders = self.resource.Table(os.getenv("TRADERS_TABLE"))
 
     def get_user_information(self, trader_name):
         """
