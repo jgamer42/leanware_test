@@ -131,19 +131,21 @@ For this part check [this documentation](https://boto3.amazonaws.com/v1/document
         </tfoot>
     </table>
 <h1>How to use</h1>
+
 1. Login to the API
 2. Try any route
+
 <h2>routes</h2>
 
 | Route | Method | Use | Payload |
 |---|---|---|---|
-| /login | POST | This route is used to  Login into the API |{ "username":"your username", "password":"your password" } |
+| /login | POST | This route is used to  Login into the API | { "username":"your username", "password":"your password" } |
 | /logout | GET | This route is used to to Logout from the API | NA |
 | /investments/symbols | GET | This route is used to get all available in the API | NA |
-| /investments/stocks/<investment_name>/<start_date>/<end_date> | GET | This route ise used to get all prices from a stock in given timeframe - The investment name param is the name of the stock to chekc IE: Google  - The start date param is the start of the  timeframe to check the price , it should be  with following format dd-mm-yyyy   - The end date param is the end of the  timeframe to check the price, this param is optional if let empty will check the price until today, it should be  with following format dd-mm-yyyy | NA |
+| /investments/stocks/<investment_name>/<start_date>/<end_date> | GET | This route ise used to get all prices from a stock in given timeframe  The investment name param is the name of the stock to chekc IE: Google  The start date param is the start of the timeframe, it should be with following format dd-mm-yyyy  The end date is optional | NA |
 | /insvestments/sotcks/export | GET | This route is used to a .csv file with the all stocks prices  registre in the API | NA |
 | /traders/symbols | GET | This route is used to check which follows the user is following | NA |
-| /traders/symbols/update | PUT,POST | This route is used to update which symbols follows the user | {      "Symbols" :["list with symbols to follow"] } 
+| /traders/symbols/update | PUT,POST | This route is used to update which symbols follows the user | {      "Symbols" :["list with symbols to follow"] } |
 
 <h1>Installation</h1>
 
