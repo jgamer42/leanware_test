@@ -10,5 +10,5 @@ traders.add_url_rule(
     "/symbols/update",
     "update investments",
     view.update_following_investments,
-    methods=["PUT"],
+    methods=["PUT","POST"],
 )
